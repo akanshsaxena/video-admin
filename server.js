@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var http = require("http").createServer(app);
 var socketIO = require("socket.io")(http);
+const cors = require("cors");
 var formidable = require("formidable");
 var fileSystem = require("fs");
 var mongoClient = require("mongodb").MongoClient;
@@ -14,7 +15,7 @@ const port = process.env.PORT || 3000;
 const videoRouter = require("./public/routes/video");
 const mongoose = require("mongoose");
 //var nodemailer = require("nodemailer");
-
+app.use(cors());
 //var mainURL = "http://localhost:4000";
 
 app.use(
